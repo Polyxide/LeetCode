@@ -2,6 +2,8 @@
 https://www.codewars.com/kata/64fbfe2618692c2018ebbddb/train/python
 """
 
+# test
+
 
 def flick_switch(lst):
     answer = []
