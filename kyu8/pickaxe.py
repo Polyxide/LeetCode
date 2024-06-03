@@ -1,4 +1,20 @@
+"""
+https://www.codewars.com/kata/65c0161a2380ae78052e5731/train/python
+"""
+
+#best solution
+
 def stone_pick(arr):
+    stick = arr.count('Sticks') + arr.count('Wood')*4
+    cobble = arr.count('Cobblestone')
+    return (min(cobble//3, stick//2))
+
+
+
+
+#my solution
+
+def stone_pickk(arr):
 
     sticks_counter = 0
     stones_counter = 0
