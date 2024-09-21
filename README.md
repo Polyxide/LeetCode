@@ -1,1 +1,1 @@
-# my codewars solutions
+# my leetcode solutions
