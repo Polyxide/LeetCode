@@ -1,8 +1,8 @@
-car = {
+cars = {
 "brand": "Ford",
-"model": "Mustang",
+"models": "Mustang",
 "year": 1964
 }
 
-for x in car.values():
-  print(x)
+
+
