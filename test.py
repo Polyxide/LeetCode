@@ -1,3 +1,7 @@
+from collections import deque
+
+
+
 # def binary_search(list, item):
 #     low = 0
 #     high = len(list) - 1
@@ -75,6 +79,8 @@
 
 
 
+
+
 # def binary_search(arr, target, low, high):
 #
 #     if low > high:
@@ -98,3 +104,61 @@
 # it = 6
 #
 # print(search(ar, it))
+
+
+
+
+
+
+# def quicksort(array):
+#     if len(array) < 2:
+#         return array
+#     else:
+#         pivot = array[0]
+#         less = [i for i in array[1:] if i <= pivot]
+#         greater = [i for i in array[1:] if i > pivot]
+#         return quicksort(less) + [pivot] + quicksort(greater)
+#
+# print(quicksort([10, 5, 2, 3]))
+
+
+
+
+
+
+graph = dict()
+graph['you'] = ['alex', 'vouva', 'roma']
+graph['alex'] = ['katya', 'vlad']
+graph['vouva'] = ['bohdan']
+graph['roma'] = ['vlad', 'olya', 'katya']
+graph['katya'] = []
+graph['olya'] = []
+graph['vlad'] = []
+graph['bohdan'] = []
+
+
+def person_is_seller(person):
+    if person == 'bohdan':
+        return True
+    else:
+        return False
+
+
+
+def search(name):
+    search_queue = deque()
+    search_queue += graph[name]
+    searched = []
+    while search_queue:
+        person = search_queue.popleft()
+        if not person in searched:
+            if person_is_seller(person):
+                print(person + ' is a mango seller!')
+                return True
+            else:
+                search_queue += graph[person]
+                searched.append(person)
+
+    return False
+
+search('you')
