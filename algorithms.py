@@ -126,6 +126,8 @@ from collections import deque
 
 
 
+
+
 graph = dict()
 graph['you'] = ['alex', 'vouva', 'roma']
 graph['alex'] = ['katya', 'vlad']
