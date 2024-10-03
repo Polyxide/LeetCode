@@ -2,30 +2,54 @@ from collections import deque
 
 
 
-# def binary_search(list, item):
-#     low = 0
-#     high = len(list) - 1
+                                                                              '''Recursion'''
+
+
+
+# def recursive_sum(arr):
 #
-#     while low <= high:
-#         mid = (low + high) // 2
-#         guess = list[int(mid)]
-#         if guess == item:
-#             return mid
-#         if guess > item:
-#             high = mid - 1
-#         else:
-#             low = mid + 1
-#     return None
+#     if len(arr) == 0:
+#         return 0
 #
-# my_list = [1, 3, 5, 7, 9, 11, 13]
+#     return arr[0] + recursive_sum(arr[1:])
 #
-# print(binary_search(my_list, 7))
+# arra = [1, 2, 8, 4, 5, 3]
+#
+# print(recursive_sum(arra))
+
+
+
+
+# def binary_search(arr, target, low, high):
+#
+#     if low > high:
+#         return None
+#
+#     mid = (low + high) // 2
+#
+#     if arr[mid] == target:
+#         return mid
+#     elif target < arr[mid]:
+#         return binary_search(arr, target, low, mid - 1)
+#     else:
+#         return binary_search(arr, target, mid + 1, high)
+#
+#
+#
+# def search(arr, target):
+#     return binary_search(arr, target, 0, len(arr) - 1)
+#
+#
+# ar = [1, 2, 3, 4, 5, 6, 7]
+# it = 6
+#
+# print(search(ar, it))
 
 
 
 
 
-
+                                                                            '''Selection_sort'''
 
 
 # def findSmallest(arr):
@@ -48,66 +72,7 @@ from collections import deque
 
 
 
-
-
-
-# counter = 0
-# biggest = 0
-# def recursive_sum(arr):
-#     # Base case:
-#     if len(arr) == 0:
-#         return 0
-#
-#     # Recursive case:
-#     global counter
-#     counter += 1
-#
-#
-#     global biggest
-#     if arr[0] > biggest:
-#         biggest = arr[0]
-#
-#
-#     return arr[0] + recursive_sum(arr[1:])
-#
-# arra = [1, 2, 8, 4, 5, 3]
-#
-# print(recursive_sum(arra))
-# print(counter)
-# print(biggest)
-
-
-
-
-
-
-# def binary_search(arr, target, low, high):
-#
-#     if low > high:
-#         return None
-#
-#
-#     mid = (low + high) // 2
-#
-#     if arr[mid] == target:
-#         return mid
-#     elif target < arr[mid]:
-#         return binary_search(arr, target, low, mid - 1)
-#     else:
-#         return binary_search(arr, target, mid + 1, high)
-#
-# def search(arr, target):
-#     return binary_search(arr, target, 0, len(arr) - 1)
-#
-#
-# ar = [1, 2, 3, 4, 5, 6, 7]
-# it = 6
-#
-# print(search(ar, it))
-
-
-
-
+                                                                             '''Quick_sort'''
 
 
 # def quicksort(array):
@@ -124,43 +89,65 @@ from collections import deque
 
 
 
+                                                                             '''Binary_search'''
+
+
+# def binary_search(list, item):
+#     low = 0
+#     high = len(list) - 1
+#
+#     while low <= high:
+#         mid = (low + high) // 2
+#         guess = list[int(mid)]
+#         if guess == item:
+#             return mid
+#         if guess > item:
+#             high = mid - 1
+#         else:
+#             low = mid + 1
+#     return None
+#
+# my_list = [1, 3, 5, 7, 9, 11, 13]
+#
+# print(binary_search(my_list, 3))
 
 
 
+                                                                        '''Breadth-first_search'''
 
-graph = dict()
-graph['you'] = ['alex', 'vouva', 'roma']
-graph['alex'] = ['katya', 'vlad']
-graph['vouva'] = ['bohdan']
-graph['roma'] = ['vlad', 'olya', 'katya']
-graph['katya'] = []
-graph['olya'] = []
-graph['vlad'] = []
-graph['bohdan'] = []
-
-
-def person_is_seller(person):
-    if person == 'bohdan':
-        return True
-    else:
-        return False
-
-
-
-def search(name):
-    search_queue = deque()
-    search_queue += graph[name]
-    searched = []
-    while search_queue:
-        person = search_queue.popleft()
-        if not person in searched:
-            if person_is_seller(person):
-                print(person + ' is a mango seller!')
-                return True
-            else:
-                search_queue += graph[person]
-                searched.append(person)
-
-    return False
-
-search('you')
+# graph = dict()
+# graph['you'] = ['alex', 'vouva', 'roma']
+# graph['alex'] = ['katya', 'vlad']
+# graph['vouva'] = ['bohdan']
+# graph['roma'] = ['vlad', 'olya', 'katya']
+# graph['katya'] = []
+# graph['olya'] = []
+# graph['vlad'] = []
+# graph['bohdan'] = []
+#
+#
+# def person_is_seller(person):
+#     if person == 'bohdan':
+#         return True
+#     else:
+#         return False
+#
+#
+#
+# def search(name):
+#     search_queue = deque()
+#     search_queue += graph[name]
+#     searched = []
+#     while search_queue:
+#         person = search_queue.popleft()
+#         if not person in searched:
+#             if person_is_seller(person):
+#                 print(person + ' is a mango seller!')
+#                 return True
+#             else:
+#                 search_queue += graph[person]
+#                 searched.append(person)
+#
+#     return False
+#
+# search('you')
