@@ -2,7 +2,7 @@ from collections import deque
 
 
 
-#                                                                              '''Recursion'''
+#                                                                                    Recursion
 
 
 
@@ -49,7 +49,7 @@ from collections import deque
 
 
 
-#                                                                             '''Selection_sort /  O(n^2)'''
+#                                                                             Selection_sort /  O(n^2)
 
 
 # def findSmallest(arr):
@@ -72,7 +72,7 @@ from collections import deque
 
 
 
-#                                                                              '''Quick_sort / O(n*log n)'''
+#                                                                              Quick_sort / O(n*log n)
 
 
 # def quicksort(array):
@@ -89,7 +89,7 @@ from collections import deque
 
 
 
-#                                                                              '''Binary_search /  O(log n) '''
+#                                                                              Binary_search /  O(log n)
 
 
 # def binary_search(list, item):
@@ -113,7 +113,7 @@ from collections import deque
 
 
 
-#                                                                       '''Breadth-first_search / O(V + E)'''
+#                                                                       Breadth-first_search / O(V + E)
 
 # graph = dict()
 # graph['you'] = ['alex', 'vouva', 'roma']
@@ -155,74 +155,102 @@ from collections import deque
 
 
 
-#                                                                            '''Dijkstra's algorithm'''
-
-#graph
-
-graph = dict()
-
-graph['start'] = dict()
-graph['start']['a'] = 6
-graph['start']['b'] = 2
-
-graph['a'] = dict()
-graph['a']['fin'] = 1
-
-graph['b'] = dict()
-graph['b']['a'] = 3
-graph['b']['fin'] = 5
-
-graph['fin'] = dict()
+#                                                                            Dijkstra's algorithm
 
 
-#costs
+# graph = dict()
+#
+# graph['start'] = dict()
+# graph['start']['a'] = 5
+# graph['start']['b'] = 2
+#
+# graph['a'] = dict()
+# graph['a']['c'] = 4
+# graph['a']['d'] = 2
+#
+# graph['b'] = dict()
+# graph['b']['a'] = 8
+# graph['b']['d'] = 7
+#
+# graph['c'] = dict()
+# graph['c']['d'] = 6
+# graph['c']['fin'] = 3
+#
+# graph['d'] = dict()
+# graph['d']['fin'] = 1
+#
+# graph['fin'] = dict()
+#
+#
+#
+#
+# infinity = float('inf')
+# costs = dict()
+# costs['a'] = 5
+# costs['b'] = 2
+# costs['c'] = infinity
+# costs['d'] = infinity
+# costs['fin'] = infinity
+#
+#
+#
+#
+# parents = dict()
+# parents['a'] = 'start'
+# parents['b'] = 'start'
+# parents['c'] = None
+# parents['d'] = None
+# parents['fin'] = None
+#
+#
+# processed = []
+#
+#
+#
+# def find_lowest_cost_node(costs):
+#
+#     lowest_cost = float('inf')
+#     lowest_cost_node = None
+#
+#     for node in costs:
+#         cost = costs[node]
+#         if cost < lowest_cost and node not in processed:
+#             lowest_cost = cost
+#             lowest_cost_node = node
+#
+#     return lowest_cost_node
+#
+#
+#
+# def Dijkstra(graph, costs, parents):
+#
+#     node = find_lowest_cost_node(costs)
+#
+#     while node is not None:
+#         cost = costs[node]
+#         neighbors = graph[node]
+#         for n in neighbors.keys():
+#             new_cost = cost + neighbors[n]
+#             if costs[n] > new_cost:
+#                 costs[n] = new_cost
+#                 parents[n] = node
+#         processed.append(node)
+#
+#
+#         if node == 'fin':
+#             processed.append(node)
+#
+#         node = find_lowest_cost_node(costs)
+#
+#
+#     return costs['fin']
+#
+# shortest_path = Dijkstra(graph, costs, parents)
+# print(shortest_path)
 
-infinity = float('inf')
-costs = dict()
-costs['a'] = 6
-costs['b'] = 2
-costs['fin'] = infinity
 
 
-#parents
-
-parents = dict()
-parents['a'] = 'start'
-parents['b'] = 'start'
-parents['fin'] = None
+#                                                                                Greedy Algorithms
 
 
-processed = []
 
-
-#Algorithm
-
-def find_lowest_cost_node(costs):
-    lowest_cost = float('inf')
-    lowest_cost_node = None
-    for node in costs:
-        cost = costs[node]
-        if cost < lowest_cost and node not in processed:
-            lowest_cost = cost
-            lowest_cost_node = node
-    return lowest_cost_node
-
-
-def Dijkstra(graph, costs, parents):
-    node = find_lowest_cost_node(costs)
-    while node is not None:
-        cost = costs[node]
-        neighbors = graph[node]
-        for n in neighbors.keys():
-            new_cost = cost + neighbors[n]
-            if costs[n] > new_cost:
-                costs[n] = new_cost
-                parents[n] = node
-                processed.append(node)
-        if node == 'fin':
-            processed.append(node)
-        node = find_lowest_cost_node(costs)
-    return costs['fin']
-
-shortest_path = Dijkstra(graph, costs, parents)
-print(shortest_path)
