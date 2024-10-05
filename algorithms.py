@@ -253,4 +253,32 @@ from collections import deque
 #                                                                                Greedy Algorithms
 
 
+states_needed = set(['mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az'])
 
+final_stations = set()
+
+stations = {}
+stations['kone'] = set(['id', 'nv', 'ut'])
+stations['ktwo'] = set(['wa', 'id', 'mt'])
+stations['kthree'] = set(['or', 'nv', 'ca'])
+stations['kfour'] = set(['nv', 'ut'])
+stations['kfive'] = set(['ca', 'az'])
+
+
+def greedy(states_needed, stations, final_stations):
+    while states_needed:
+        best_station = None
+        states_covered = set()
+
+        for station, regions in stations.items():
+            covered = states_needed & regions
+            if len(covered) > len(states_covered):
+                best_station = station
+                states_covered = covered
+
+        states_needed -= states_covered
+        final_stations.add(best_station)
+
+    print(final_stations)
+
+greedy(states_needed, stations, final_stations)
