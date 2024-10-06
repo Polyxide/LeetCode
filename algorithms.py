@@ -252,33 +252,68 @@ from collections import deque
 
 #                                                                                Greedy Algorithms
 
+#
+# states_needed = set(['mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az'])
+#
+# final_stations = set()
+#
+# stations = {}
+# stations['kone'] = set(['id', 'nv', 'ut'])
+# stations['ktwo'] = set(['wa', 'id', 'mt'])
+# stations['kthree'] = set(['or', 'nv', 'ca'])
+# stations['kfour'] = set(['nv', 'ut'])
+# stations['kfive'] = set(['ca', 'az'])
+#
+#
+# def greedy(states_needed, stations, final_stations):
+#     while states_needed:
+#         best_station = None
+#         states_covered = set()
+#
+#         for station, regions in stations.items():
+#             covered = states_needed & regions
+#             if len(covered) > len(states_covered):
+#                 best_station = station
+#                 states_covered = covered
+#
+#         states_needed -= states_covered
+#         final_stations.add(best_station)
+#
+#     print(final_stations)
+#
+# greedy(states_needed, stations, final_stations)
 
-states_needed = set(['mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az'])
-
-final_stations = set()
-
-stations = {}
-stations['kone'] = set(['id', 'nv', 'ut'])
-stations['ktwo'] = set(['wa', 'id', 'mt'])
-stations['kthree'] = set(['or', 'nv', 'ca'])
-stations['kfour'] = set(['nv', 'ut'])
-stations['kfive'] = set(['ca', 'az'])
 
 
-def greedy(states_needed, stations, final_stations):
-    while states_needed:
-        best_station = None
-        states_covered = set()
+#                                                                  Dynamic Programming
 
-        for station, regions in stations.items():
-            covered = states_needed & regions
-            if len(covered) > len(states_covered):
-                best_station = station
-                states_covered = covered
 
-        states_needed -= states_covered
-        final_stations.add(best_station)
+def longest_common_substring(str1, str2):
+    # Get the lengths of both strings
+    m, n = len(str1), len(str2)
 
-    print(final_stations)
+    # Create a 2D table to store lengths of longest common suffixes
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    max_length = 0
+    ending_index = 0  # To store the ending index of the longest common substring in str1
 
-greedy(states_needed, stations, final_stations)
+    # Fill dp array
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if str1[i - 1] == str2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                if dp[i][j] > max_length:
+                    max_length = dp[i][j]
+                    ending_index = i
+            else:
+                dp[i][j] = 0
+
+    # The longest common substring is from ending_index - max_length to ending_index in str1
+    return str1[ending_index - max_length: ending_index], max_length
+
+
+# Example usage
+str1 = "blue"
+str2 = "clues"
+lcs, length = longest_common_substring(str1, str2)
+print(f"Longest Common Substring: '{lcs}' with length {length}")
