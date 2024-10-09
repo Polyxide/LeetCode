@@ -322,3 +322,16 @@ from collections import deque
 #                                                                             K-Nearest
 
 
+def square_digits(num):
+    num = str(num)
+    str_list = []
+    for i in range(len(num)):
+        x = int(num[i]) ** 2
+        str_list.append(str(x))
+
+    collapsed_string = ''.join(str_list)
+    return int(collapsed_string)
+
+num = 123
+
+print(square_digits(num))
