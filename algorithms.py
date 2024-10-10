@@ -2,7 +2,17 @@ from collections import deque
 
 
 
-#                                                                                    Recursion
+
+'''
+
+Recursion:
+
+In case if a problem can be divided into smaller subproblems of the same type.
+Define base case, when recursion have to stop calling itself
+Define recursive case, where you are stating instructions which will apply each step
+(you have to call function itself here)
+
+'''
 
 
 
@@ -49,7 +59,21 @@ from collections import deque
 
 
 
-#                                                                             Selection_sort /  O(n^2)
+
+
+
+
+
+
+
+
+'''
+
+Selection_sort /  O(n^2):
+
+In python just use .sort() method
+
+'''
 
 
 # def findSmallest(arr):
@@ -72,7 +96,22 @@ from collections import deque
 
 
 
-#                                                                              Quick_sort / O(n*log n)
+
+
+
+
+
+
+
+
+
+'''
+
+Quick_sort / O(n*log n):
+
+In python just use .sort() method
+
+'''
 
 
 # def quicksort(array):
@@ -89,7 +128,20 @@ from collections import deque
 
 
 
-#                                                                              Binary_search /  O(log n)
+
+
+
+
+
+
+
+'''
+
+Binary_search /  O(log n):
+
+In python just use .index() method
+
+'''
 
 
 # def binary_search(list, item):
@@ -113,7 +165,20 @@ from collections import deque
 
 
 
-#                                                                       Breadth-first_search / O(V + E)
+
+
+
+
+
+'''
+
+Breadth-first_search / O(V + E):
+
+When there are several thing connected between each others
+and you need to find shortest connection between two of them
+
+'''
+
 
 # graph = dict()
 # graph['you'] = ['alex', 'vouva', 'roma']
@@ -155,7 +220,19 @@ from collections import deque
 
 
 
-#                                                                            Dijkstra's algorithm
+
+
+
+
+
+
+'''
+
+Dijkstra's algorithm:
+
+If you have a path from A to B, where each step will cost you a points
+
+'''
 
 
 # graph = dict()
@@ -250,7 +327,26 @@ from collections import deque
 
 
 
-#                                                                                Greedy Algorithms
+
+
+
+
+
+
+
+
+
+
+'''
+
+Greedy Algorithms:
+
+If problem can be solved by making a series of locally optimal choices
+that lead to a globally optimal solution
+
+'''
+
+
 
 #
 # states_needed = set(['mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az'])
@@ -285,19 +381,34 @@ from collections import deque
 
 
 
-#                                                                             Dynamic Programming
+
+
+
+
+
+
+
+
+'''
+
+Dynamic Programming:
+
+
+
+'''
+
 
 
 # def longest_common_substring(str1, str2):
-#     # Get the lengths of both strings
+#
 #     m, n = len(str1), len(str2)
 #
-#     # Create a 2D table to store lengths of longest common suffixes
+#
 #     dp = [[0] * (n + 1) for _ in range(m + 1)]
 #     max_length = 0
-#     ending_index = 0  # To store the ending index of the longest common substring in str1
+#     ending_index = 0
 #
-#     # Fill dp array
+#
 #     for i in range(1, m + 1):
 #         for j in range(1, n + 1):
 #             if str1[i - 1] == str2[j - 1]:
@@ -308,30 +419,34 @@ from collections import deque
 #             else:
 #                 dp[i][j] = 0
 #
-#     # The longest common substring is from ending_index - max_length to ending_index in str1
+#
 #     return str1[ending_index - max_length: ending_index], max_length
 #
 #
-# # Example usage
+#
 # str1 = "blue"
 # str2 = "clues"
 # lcs, length = longest_common_substring(str1, str2)
 # print(f"Longest Common Substring: '{lcs}' with length {length}")
 
 
-#                                                                             K-Nearest
 
 
-def square_digits(num):
-    num = str(num)
-    str_list = []
-    for i in range(len(num)):
-        x = int(num[i]) ** 2
-        str_list.append(str(x))
 
-    collapsed_string = ''.join(str_list)
-    return int(collapsed_string)
 
-num = 123
 
-print(square_digits(num))
+
+
+
+
+'''
+
+K-Nearest neighbors: 
+
+If you have some points with several measured characteristics - you could find 
+which from those points are closer to each other.   distance = sqrt( ((a1 - a2)**2) + ((b1 - b2)**2) ... )
+
+If those points with particular characteristics have any value assigned to them,
+you could define 'k' neighbors to one of them and avg of their value - will be the value of the one.
+
+'''
