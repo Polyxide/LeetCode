@@ -399,7 +399,7 @@ from collections import deque
 
 # def knap_sack(dictionary, kg):
 #
-#     dictionary = dict(sorted(dictionary.items(), key=lambda item: item[1][0], reverse=True))
+#     # dictionary = dict(sorted(dictionary.items(), key=lambda item: item[1][0], reverse=True))
 #
 #     amount = 0
 #     for i in dictionary.items():
@@ -436,24 +436,6 @@ from collections import deque
 # max_weight = 6
 #
 # knap_sack(items, max_weight)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
