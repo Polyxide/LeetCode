@@ -39,3 +39,5 @@ def get_row(n):
         return dict[26]
     elif n > 26:
         return dict[n % 26]
+
+print(get_row(3))
